@@ -2,14 +2,14 @@
 #include<algorithm>
 using namespace std;
 typedef struct{
-	int w;
-	int s;
-	int e;
+	int w;//体重 
+	int s;//速度 
+	int e;//编号 
 }Mouse;
 bool cmp(Mouse a,Mouse b){
-	if(a.w==b.w)return a.s<b.s;
+	if(a.w==b.w)return a.s<b.s;//体重相等则按速度排 ，速度从小到大 
 	else{
-		return a.w>b.w;
+		return a.w>b.w;//体重从大到小 
 	}
 }
 int max(int a,int b){
@@ -33,8 +33,7 @@ int main(){
 	for(i=1;i<count;i++){
 		big=0;
 		for(j=0;j<i;j++){
-			if(mouse[i].s>mouse[j].s&&mouse[i].w!=mouse[j].w){
-				
+			if(mouse[i].s>mouse[j].s&&mouse[i].w!=mouse[j].w){	
 				big=max(f[j],big);
 			}
 			 
@@ -55,7 +54,7 @@ int main(){
 	printf("%d\n",bignum);
 	while(big>0){
 		big--;
-		for(i=bigcount;i>=0;i--){//要从后面往前面找 
+		for(i=bigcount;i>=0;i--){ 
 			if(f[i]==big){
 				printf("%d\n",mouse[i].e);
 				bigcount=i;
